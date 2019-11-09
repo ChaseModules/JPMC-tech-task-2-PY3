@@ -1,3 +1,26 @@
+# Chase module 2
+
+* let vscode auto install black
+* got to vs code and do that -S in arguments
+  * single quotes.
+
+## Setup
+
+* pyenv
+  * pyenv activate 3.6.2chase
+    * 3.6.2 is the same fakenv i used for module1
+    * already pipped: python-dateutil.
+* ./start.py
+  * runs a server on 8080
+  * my python shebang might be different from your python shebang.
+
+## Future Revisions
+
+* rebuild this repos to something more usable.
+* write a script that creates the ./start.py based on the python path you have.
+  
+---
+
 <p align="center">
 <a href="https://www.insidesherpa.com/virtual-internships/prototype/R5iK7HMxJGBgaSbvk/Technology%20Virtual%20Experience" target="_blank">
 <img src="https://insidesherpa-assets.s3-ap-southeast-2.amazonaws.com/icons/jpmorgan/github+repo+images/jpmc+github+img.png">
@@ -41,9 +64,9 @@ Implement JP Morgan Chase’s Perspective open source code in preparation for da
 
 <code> python datafeed/server3.py </code>
 
-If you encounter an issue with `datautil.parser`, run this command: 
+If you encounter an issue with `datautil.parser`, run this command:
 
-	pip install python-dateutil
+    pip install python-dateutil
 
 If you don't have pip, you can install it from: https://pip.pypa.io/en/stable/installing/
 
@@ -56,7 +79,6 @@ If you don't have `npm` (although you should if you followed the set up / instal
 The recommended version are node v11.0.0 and npm v6.4.1
 
 Open http://localhost:3000 to view the app in the browser. The page will reload if you make edits.
-
 
 <h2>How to fix the code to meet the objectives</h2>
 <p>To make the changes necessary to complete the objectives of this task, <a href="https://insidesherpa.s3.amazonaws.com/vinternships/companyassets/Sj7temL583QAYpHXD/making_changes_m2_v1.pdf">follow this guide</a>.</p>
