@@ -68,7 +68,6 @@ class Graph extends Component<IProps, {}> {
       "top_bid_price": "avg",
       "timestamp": "distinct count"}`
     };
-    elem.attr(attributes);
     // console.log(elem);
 
     const schema = {
@@ -78,7 +77,10 @@ class Graph extends Component<IProps, {}> {
       timestamp: "date"
     };
 
-    if (window.perspective && window.perspective.worker()) {
+    // if (window.perspective && window.perspective.worker()) {
+    //   this.table = window.perspective.worker().table(schema);
+    // }
+    if (window.perspective) {
       this.table = window.perspective.worker().table(schema);
     }
     if (this.table) {
@@ -86,6 +88,7 @@ class Graph extends Component<IProps, {}> {
 
       // Add more Perspective configurations here.
       elem.load(this.table);
+      elem.attr(attributes);
     }
   }
 
