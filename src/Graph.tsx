@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Attributes } from "react";
 import { Table } from "@jpmorganchase/perspective";
 import { ServerRespond } from "./DataStreamer";
 import "./Graph.css";
@@ -14,12 +14,7 @@ interface IProps {
  * Perspective library adds load to HTMLElement prototype.
  * This interface acts as a wrapper for Typescript compiler.
  */
-interface PerspectiveViewerElement extends HTMLElement {
-  load: (table: Table) => void;
-  attr: (attributes: any) => void;
-}
 
-type T = string;
 interface AttributesConfig {
   ["view"]: string;
   ["column-pivots"]: string;
@@ -30,6 +25,12 @@ interface AttributesConfig {
   ["top_bid_price"]: string;
   ["timestamp"]: string;
 }
+
+interface PerspectiveViewerElement extends HTMLElement {
+  load: (table: Table) => void;
+  attr: (attributes: any) => void;
+}
+
 /**
  * React component that renders Perspective based on data
  * parsed from its parent through data property.
@@ -55,6 +56,7 @@ class Graph extends Component<IProps, {}> {
         Object.entries(attributes).map((attribute: string[]) => {
           elem.setAttribute(attribute[0], attribute[1]);
         });
+        return;
       }
     });
 
