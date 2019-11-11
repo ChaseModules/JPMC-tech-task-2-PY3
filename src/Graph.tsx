@@ -52,21 +52,11 @@ class Graph extends Component<IProps, {}> {
      */
     Object.assign(elem, {
       attr(attributes: AttributesConfig): void {
-        type AttributeKey = keyof AttributesConfig;
-        let attribute: AttributeKey;
-        for (attribute in attributes) {
-          elem.setAttribute(attribute, attributes[attribute]);
-        }
+        Object.entries(attributes).map((attribute: string[]) => {
+          elem.setAttribute(attribute[0], attribute[1]);
+        });
       }
     });
-
-    // function attr( attributes:AttributesConfig) {
-    //   var attribute: string;
-
-    //   for (attribute in attributes) {
-    //     elem.setAttribute(attribute, attributes[attribute]);
-    //   }
-    // }
 
     let attributes = {
       view: "y_line",
