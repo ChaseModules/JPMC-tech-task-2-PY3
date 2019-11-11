@@ -1,4 +1,4 @@
-import React, { Component, Attributes } from "react";
+import React, { Component } from "react";
 import { Table } from "@jpmorganchase/perspective";
 import { ServerRespond } from "./DataStreamer";
 import "./Graph.css";
@@ -21,14 +21,14 @@ interface PerspectiveViewerElement extends HTMLElement {
 
 type T = string;
 interface AttributesConfig {
-  view: string;
-  "column-pivots": string;
-  columns: string;
+  ["view"]: string;
+  ["column-pivots"]: string;
+  ["columns"]: string;
   "row-pivots": string;
-  aggregates: string;
-  top_ask_price: string;
-  top_bid_price: string;
-  timestamp: string;
+  ["aggregates"]: string;
+  ["top_ask_price"]: string;
+  ["top_bid_price"]: string;
+  ["timestamp"]: string;
 }
 /**
  * React component that renders Perspective based on data
@@ -51,17 +51,22 @@ class Graph extends Component<IProps, {}> {
      * decorate elem object with powers to set Attributes en-masse.
      */
     Object.assign(elem, {
-      attr<K extends keyof AttributesConfig>(
-        attributes: AttributesConfig,
-        value: AttributesConfig[K]
-      ): void {
-        var attribute: string;
-
+      attr(attributes: AttributesConfig): void {
+        type AttributeKey = keyof AttributesConfig;
+        let attribute: AttributeKey;
         for (attribute in attributes) {
-          elem.setAttribute(attribute, value);
+          elem.setAttribute(attribute, attributes[attribute]);
         }
       }
     });
+
+    // function attr( attributes:AttributesConfig) {
+    //   var attribute: string;
+
+    //   for (attribute in attributes) {
+    //     elem.setAttribute(attribute, attributes[attribute]);
+    //   }
+    // }
 
     let attributes = {
       view: "y_line",
